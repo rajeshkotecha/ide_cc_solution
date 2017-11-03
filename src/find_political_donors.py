@@ -120,11 +120,6 @@ def find_political_donors (debug=False):
     output_file_by_zip = sys.argv [2]
     output_file_by_date = sys.argv [3]
 
-    if debug:
-        print ("Input file: ", input_file)
-        print ("Output file by zip: ", output_file_by_zip)
-        print ("Output file by date: ", output_file_by_date)
-
     output_data_by_zip = open (output_file_by_zip, "w")
     output_data_by_date = open (output_file_by_date, "w")
     dict_by_zip = {}
@@ -180,16 +175,12 @@ def find_political_donors (debug=False):
             print ("convert date: ", convert_date (transaction_dt))
             print ("valid zip code: ", validate_zip (zip_code), "\n")
     
-    if debug:
-        print (dict_by_date)
-
     write_output_by_date (output_data_by_date, dict_by_date)
     input_data.close()
     output_data_by_zip.close ()
     output_data_by_date.close ()
 
 
-
 if __name__ == '__main__':
-    find_political_donors (True)
+    find_political_donors (debug=False)
 
